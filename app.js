@@ -80,16 +80,13 @@ app.get("/work", function(req, res){
 });
 
 app.post("/", function(req, res){
-  let todo = req.body.newItem;
+  const itemName = req.body.newItem;
+  const item = new Item({
+    name: itemName
+  });
 
-  if(req.body.Button === "work"){
-    workItems.push(todo);
-    res.redirect("/work");
-  } else {
-    todos.push(todo);
-    res.redirect("/");
-  }
-  console.log(req.body);
+  item.save();
+  res.redirect("/");
 });
 
 app.listen(3000, function(){
