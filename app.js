@@ -88,6 +88,9 @@ app.post("/", function(req, res){
   item.save();
   res.redirect("/");
 });
+app.post("/delete", function(req,res){
+  console.log(req.body);
+})
 
 app.listen(3000, function(){
   console.log("server is running on port 3000");

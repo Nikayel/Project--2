@@ -1,20 +1,24 @@
 <%- include("header") -%>
 
   <div class="box" id="heading">
-    <h1> <%= kindOfDay %> </h1>
+    <h1> Bucket list as of : <%= kindOfDay %> </h1>
   </div>
+
 
   <div class="box">
     <% newListItems.forEach(function(item){ %>
-      <div class="item">
-        <input type="checkbox">
-        <p><%= item.name %></p>
-      </div>
+      <form class="" action="/delete" method="post">
+        <div class="item">
+          <input name = "checkbox" type="checkbox"  onChange="this.form.submit()">
+          <p><%= item.name %></p>
+        </div>
+      </form>
+
     <%}); %>
 
 
       <form class="item" action="/" method="post">
-        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <input type="text" name="newItem" placeholder="New WishList" autocomplete="off">
         <button type="submit" name="list">+</button>
       </form>
   </div>
